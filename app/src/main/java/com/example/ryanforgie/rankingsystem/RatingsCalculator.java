@@ -6,10 +6,20 @@ package com.example.ryanforgie.rankingsystem;
 
 public class RatingsCalculator {
 
-    Player player;
+    private Player primaryPlayer;
+    private Player otherPlayer;
 
-    public RatingsCalculator(Player player) {
-        this.player = player;
+    public RatingsCalculator(Player primaryPlayer, Player otherPlayer) {
+        this.primaryPlayer = primaryPlayer;
+        this.otherPlayer = otherPlayer;
+    }
+
+    public void updateRating() {
+
+    }
+
+    public int expectedScore(Player primaryPlayer, Player otherPlayer) {
+         return primaryPlayer.getRating() / (primaryPlayer.getRating() + otherPlayer.getRating());
     }
 
 
