@@ -8,9 +8,9 @@ import java.util.ArrayList;
 
 public class PlayerPool {
 
-    private ArrayList<Player> players;
+    private ArrayList<Playable> players;
 
-    public PlayerPool(ArrayList<Player> players) {
+    public PlayerPool() {
         players = new ArrayList<>();
     }
 

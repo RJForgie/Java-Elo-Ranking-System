@@ -6,14 +6,15 @@ package com.example.ryanforgie.rankingsystem;
 
 public class RatingsCalculator {
 
-    Player winner;
-    Player loser;
+    Player player;
 
-
-    public RatingsCalculator(Player winner, Player loser) {
-        this.winner = winner;
-        this.loser = loser;
+    public RatingsCalculator(Player player) {
+        this.player = player;
     }
+
+
+
+
 
     
 

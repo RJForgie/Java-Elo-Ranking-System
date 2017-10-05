@@ -13,9 +13,29 @@ public class DefaultSettings {
 
 
     public DefaultSettings() {
-        this.proRatingBoundry = 2400;
-        this.starterBoundry = 30;
-        this.defaultRating = 1000;
-        this.defaultKFactor = 15;
+        proRatingBoundry = 2400;
+        starterBoundry = 5;
+        defaultRating = 1000;
+        defaultKFactor = 10;
+    }
+
+    public int getProRatingBoundry() {
+        return proRatingBoundry;
+    }
+
+    public int getStarterBoundry() {
+        return starterBoundry;
+    }
+
+    public int getDefaultRating() {
+        return defaultRating;
+    }
+
+    public int getDefaultKFactor() {
+        return defaultKFactor;
+    }
+
+    public void setStarterBoundry(int starterBoundry) {
+        this.starterBoundry = starterBoundry;
     }
 }
