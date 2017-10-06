@@ -9,13 +9,11 @@ public class RatingsCalculator {
     private Player primaryPlayer;
     private Player otherPlayer;
     private DefaultSettings defaultSettings;
-    private Game game;
 
-    public RatingsCalculator(Game game) {
+    public RatingsCalculator(Player primaryPlayer, Player otherPlayer) {
         defaultSettings = new DefaultSettings();
-        this.game = game;
-        primaryPlayer = game.getPlayers().get(0);
-        otherPlayer = game.getPlayers().get(1);
+        this.primaryPlayer = primaryPlayer;
+        this.otherPlayer = otherPlayer;
     }
 
     public double transformedRating(Player player) {
@@ -28,9 +26,10 @@ public class RatingsCalculator {
         return primaryPlayerTransformedRating / (primaryPlayerTransformedRating + otherPlayerTransformedRating);
     }
 
-    public int newRating(Player player) {
-        player.getRating() + this.kFactor(player) * pl
-
+    public int newRating(Player primaryPlayer, Player otherPlayer, int score) {
+        double updatedRating = primaryPlayer.getRating() + this.kFactor(primaryPlayer) * (score - this.expectedScore(primaryPlayer, otherPlayer));
+        int rounded = (int) Math.round(updatedRating);
+        return rounded;
     }
 
     public int kFactor(Player player) {
