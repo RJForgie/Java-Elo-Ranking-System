@@ -12,6 +12,8 @@ public class Game {
     private DefaultSettings defaultsettings;
     private Player player1;
     private Player player2;
+    private int player1score;
+    private int getPlayer2score;
 
 
     public Game(Player player1, Player player2) {

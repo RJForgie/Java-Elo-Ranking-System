@@ -14,19 +14,16 @@ public class RatingsCalculator {
         this.otherPlayer = otherPlayer;
     }
 
-    public void updateRating() {
-
+    public double transformedRating(Player player) {
+        return Math.pow(10, (player.getRating()/400));
     }
 
-    public int expectedScore(Player primaryPlayer, Player otherPlayer) {
-         return primaryPlayer.getRating() / (primaryPlayer.getRating() + otherPlayer.getRating());
+    public double expectedScore(Player primaryPlayer, Player otherPlayer) {
+        double primaryPlayerTransformedRating = this.transformedRating(primaryPlayer);
+        double otherPlayerTransformedRating = this.transformedRating(otherPlayer);
+        return primaryPlayerTransformedRating / (primaryPlayerTransformedRating + otherPlayerTransformedRating);
     }
 
-
-
-
-
-    
 
 
 }
