@@ -35,6 +35,11 @@ public class RatingsCalculatorTest {
         assertEquals(0.09, ratingsCalculator.expectedScore(player2, player1), 0.001);
     }
 
+    @Test
+    public void testNewRating(){
+        assertEquals(2371, ratingsCalculator.newRating(player1));
+    }
+
 
 
 

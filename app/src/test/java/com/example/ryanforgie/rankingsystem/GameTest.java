@@ -21,7 +21,7 @@ public class GameTest {
 //        defaultSettings.setStarterBoundry(2);
         player1 = new Player("Ryan");
         player2 = new Player("Emily");
-        game1 = new Game(player1, player2);
+        game1 = new Game(player1, 1, player2, 0);
 
     }
 
@@ -32,11 +32,11 @@ public class GameTest {
 
     @Test
     public void testKFactor() {
-        Game game2 = new Game(player1, player2);
-        Game game3 = new Game(player1, player2);
-        Game game4 = new Game(player1, player2);
-        Game game5 = new Game(player1, player2);
-        Game game6 = new Game(player1, player2);
+        Game game2 = new Game(player1, 1, player2, 0);
+        Game game3 = new Game(player1, 1, player2, 0);
+        Game game4 = new Game(player1, 0, player2, 1);
+        Game game5 = new Game(player1, 0, player2, 1);
+        Game game6 = new Game(player1, 1, player2, 0);
         player1.setRating(2400);
         assertEquals(10, game2.kFactor(player1));
         player2.setRating(2300);

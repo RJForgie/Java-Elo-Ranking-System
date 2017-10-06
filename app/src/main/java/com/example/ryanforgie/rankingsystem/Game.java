@@ -13,20 +13,16 @@ public class Game {
     private Player player1;
     private Player player2;
     private int player1score;
-    private int getPlayer2score;
+    private int player2score;
 
 
-    public Game(Player player1, Player player2) {
+    public Game(Player player1, int player1score, Player player2, int player2score) {
+        this.player1score = player1score;
+        this.player2score = player2score;
         defaultsettings = new DefaultSettings();
         this.players = new ArrayList<>();
         this.addPlayersToGame(player1, player2);
         this.addGameToPlayerGamesBank(player1, player2);
-    }
-
-    public int kFactor(Player player) {
-        if (player.numberOfGamesPlayed() < defaultsettings.getStarterBoundry()) return 25;
-        if (player.getRating() < defaultsettings.getProRatingBoundry()) return 15;
-        return defaultsettings.getDefaultKFactor();
     }
 
     public void addPlayersToGame(Player firstPlayer, Player secondPlayer) {
@@ -40,9 +36,7 @@ public class Game {
     }
 
 
-
-
-
-
-
+    public ArrayList<Player> getPlayers() {
+        return players;
+    }
 }

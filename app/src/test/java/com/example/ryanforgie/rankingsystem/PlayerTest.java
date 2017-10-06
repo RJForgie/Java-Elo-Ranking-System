@@ -18,7 +18,7 @@ public class PlayerTest {
     public void before() {
         player1 = new Player("Ryan");
         player2 = new Player("Emily");
-        game1 = new Game(player1, player2);
+        game1 = new Game(player1, 1, player2, 0);
     }
 
     @Test
