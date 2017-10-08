@@ -39,7 +39,8 @@ public class RatingsCalculatorTest {
 
     @Test
     public void testNewRating(){
-        assertEquals(2403, ratingsCalculator.newRating(player1, player2), 0.001);
+        assertEquals(2402, ratingsCalculator.newRating(player1, player2), 0.001);
+        assertEquals(1998, ratingsCalculator.newRating(player2, player1), 0.001);
     }
 
     @Test
@@ -63,6 +64,14 @@ public class RatingsCalculatorTest {
         assertEquals(10, ratingsCalculator.kFactor(player1));
         player2.setRating(2300);
         assertEquals(15, ratingsCalculator.kFactor(player2));
+    }
+
+    @Test
+    public void testUpdatePlayerRating() {
+        ratingsCalculator.updatePlayerRating(player1, player2);
+        assertEquals(2402, player1.getRating());
+        assertEquals(1998, player2.getRating());
+
     }
 
 

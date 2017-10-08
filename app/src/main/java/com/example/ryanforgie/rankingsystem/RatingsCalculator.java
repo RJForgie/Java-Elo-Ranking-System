@@ -6,16 +6,16 @@ package com.example.ryanforgie.rankingsystem;
 
 public class RatingsCalculator {
 
-    private Player winner;
-    private Player loser;
+    private Player player1;
+    private Player player2;
     private DefaultSettings defaultSettings;
     private Game game;
 
     public RatingsCalculator(Game game) {
         defaultSettings = new DefaultSettings();
         this.game = game;
-        this.winner = game.getWinner();
-        this.loser = game.getLoser();
+        this.player1 = game.getPlayers().get(0);
+        this.player2 = game.getPlayers().get(0);
     }
 
 
@@ -29,10 +29,10 @@ public class RatingsCalculator {
         return firstPlayerTranRating / (firstPlayerTranRating + secondPlayerTranRating);
     }
 
-    public double newRating(Player primaryPlayer, Player otherPlayer) {
+    public int newRating(Player primaryPlayer, Player otherPlayer) {
         double updatedRating = primaryPlayer.getRating() + this.kFactor(primaryPlayer) * (this.getScore(primaryPlayer) - this.expectedScore(primaryPlayer, otherPlayer));
         int rounded = (int) Math.round(updatedRating);
-        return updatedRating;
+        return rounded;
     }
 
     public int getScore(Player player) {
@@ -41,17 +41,17 @@ public class RatingsCalculator {
     }
 
     public int kFactor(Player player) {
-        if (player.numberOfGamesPlayed() < defaultSettings.getStarterBoundry()) return 32;
+        if (player.numberOfGamesPlayed() < defaultSettings.getStarterBoundry()) return 25;
         if (player.getRating() < defaultSettings.getProRatingBoundry()) return 15;
         return defaultSettings.getDefaultKFactor();
     }
 
-//    public void updatePlayerRating(Player firstPlayer, Player secondPlayer) {
-//        int firstNewRating = this.newRating(firstPlayer, secondPlayer);
-//        int secondNewRating = this.newRating(secondPlayer, firstPlayer);
-//        firstPlayer.setRating(firstNewRating);
-//        secondPlayer.setRating(secondNewRating);
-//    }
+    public void updatePlayerRating(Player firstPlayer, Player secondPlayer) {
+        int firstNewRating = this.newRating(firstPlayer, secondPlayer);
+        int secondNewRating = this.newRating(secondPlayer, firstPlayer);
+        firstPlayer.setRating(firstNewRating);
+        secondPlayer.setRating(secondNewRating);
+    }
 
 
 
