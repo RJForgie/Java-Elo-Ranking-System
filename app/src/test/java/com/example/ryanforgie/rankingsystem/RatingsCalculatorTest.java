@@ -13,6 +13,7 @@ public class RatingsCalculatorTest {
     RatingsCalculator ratingsCalculator;
     Player player1;
     Player player2;
+    Game game1;
 
     @Before
     public void before() {
@@ -20,7 +21,8 @@ public class RatingsCalculatorTest {
         player2 = new Player("Emily");
         player1.setRating(2400);
         player2.setRating(2000);
-        ratingsCalculator = new RatingsCalculator(player1, player2);
+        game1 = new Game(player1, 1, player2, 0);
+        ratingsCalculator = new RatingsCalculator(game1);
     }
 
     @Test
@@ -37,26 +39,31 @@ public class RatingsCalculatorTest {
 
     @Test
     public void testNewRating(){
-        assertEquals(2403, ratingsCalculator.newRating(player1, player2, 1), 0.001);
+        assertEquals(2403, ratingsCalculator.newRating(player1, player2), 0.001);
     }
 
-//    @Test
-//    public void testStartsWithCorrectPlayerKRating() {
-//        assertEquals(25, game1.kFactor(player1));
-//    }
-//
-//    @Test
-//    public void testKFactor() {
-//        Game game2 = new Game(player1, 1, player2, 0);
-//        Game game3 = new Game(player1, 1, player2, 0);
-//        Game game4 = new Game(player1, 0, player2, 1);
-//        Game game5 = new Game(player1, 0, player2, 1);
-//        Game game6 = new Game(player1, 1, player2, 0);
-//        player1.setRating(2400);
-//        assertEquals(10, game2.kFactor(player1));
-//        player2.setRating(2300);
-//        assertEquals(15, game2.kFactor(player2));
-//    }
+    @Test
+    public void testGetScore() {
+        assertEquals(1, ratingsCalculator.getScore(player1));
+    }
+
+    @Test
+    public void testStartsWithCorrectPlayerKRating() {
+        assertEquals(25, ratingsCalculator.kFactor(player1));
+    }
+
+    @Test
+    public void testKFactor() {
+        Game game2 = new Game(player1, 1, player2, 0);
+        Game game3 = new Game(player1, 1, player2, 0);
+        Game game4 = new Game(player1, 0, player2, 1);
+        Game game5 = new Game(player1, 0, player2, 1);
+        Game game6 = new Game(player1, 1, player2, 0);
+        player1.setRating(2400);
+        assertEquals(10, ratingsCalculator.kFactor(player1));
+        player2.setRating(2300);
+        assertEquals(15, ratingsCalculator.kFactor(player2));
+    }
 
 
 

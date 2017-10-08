@@ -6,37 +6,52 @@ package com.example.ryanforgie.rankingsystem;
 
 public class RatingsCalculator {
 
-    private Player primaryPlayer;
-    private Player otherPlayer;
+    private Player winner;
+    private Player loser;
     private DefaultSettings defaultSettings;
+    private Game game;
 
-    public RatingsCalculator(Player primaryPlayer, Player otherPlayer) {
+    public RatingsCalculator(Game game) {
         defaultSettings = new DefaultSettings();
-        this.primaryPlayer = primaryPlayer;
-        this.otherPlayer = otherPlayer;
+        this.game = game;
+        this.winner = game.getWinner();
+        this.loser = game.getLoser();
     }
+
 
     public double transformedRating(Player player) {
         return Math.pow(10, (player.getRating()/400));
     }
 
-    public double expectedScore(Player primaryPlayer, Player otherPlayer) {
-        double primaryPlayerTransformedRating = this.transformedRating(primaryPlayer);
-        double otherPlayerTransformedRating = this.transformedRating(otherPlayer);
-        return primaryPlayerTransformedRating / (primaryPlayerTransformedRating + otherPlayerTransformedRating);
+    public double expectedScore(Player firstPlayer, Player secondPlayer) {
+        double firstPlayerTranRating = this.transformedRating(firstPlayer);
+        double secondPlayerTranRating = this.transformedRating(secondPlayer);
+        return firstPlayerTranRating / (firstPlayerTranRating + secondPlayerTranRating);
     }
 
-    public int newRating(Player primaryPlayer, Player otherPlayer, int score) {
-        double updatedRating = primaryPlayer.getRating() + this.kFactor(primaryPlayer) * (score - this.expectedScore(primaryPlayer, otherPlayer));
+    public double newRating(Player primaryPlayer, Player otherPlayer) {
+        double updatedRating = primaryPlayer.getRating() + this.kFactor(primaryPlayer) * (this.getScore(primaryPlayer) - this.expectedScore(primaryPlayer, otherPlayer));
         int rounded = (int) Math.round(updatedRating);
-        return rounded;
+        return updatedRating;
+    }
+
+    public int getScore(Player player) {
+        if (player.equals(game.getWinner())) return 1;
+        return 0;
     }
 
     public int kFactor(Player player) {
-        if (player.numberOfGamesPlayed() < defaultSettings.getStarterBoundry()) return 25;
+        if (player.numberOfGamesPlayed() < defaultSettings.getStarterBoundry()) return 32;
         if (player.getRating() < defaultSettings.getProRatingBoundry()) return 15;
         return defaultSettings.getDefaultKFactor();
     }
+
+//    public void updatePlayerRating(Player firstPlayer, Player secondPlayer) {
+//        int firstNewRating = this.newRating(firstPlayer, secondPlayer);
+//        int secondNewRating = this.newRating(secondPlayer, firstPlayer);
+//        firstPlayer.setRating(firstNewRating);
+//        secondPlayer.setRating(secondNewRating);
+//    }
 
 
 

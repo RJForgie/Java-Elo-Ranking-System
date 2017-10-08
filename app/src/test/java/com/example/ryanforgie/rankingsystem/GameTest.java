@@ -25,6 +25,25 @@ public class GameTest {
 
     }
 
+    @Test
+    public void testAddPlayersToGame() {
+        assertEquals(2, game1.getPlayers().size());
+    }
+
+    @Test
+    public void testGetWinner() {
+        assertEquals(player1, game1.getWinner());
+    }
+
+    @Test
+    public void testGetLoser() {
+        assertEquals(player2, game1.getLoser());
+    }
+
+
+
+
+
 
 
 
