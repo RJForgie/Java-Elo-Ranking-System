@@ -27,5 +27,19 @@ public class PlayerPool {
         Collections.sort(players, Player.Rating);
     }
 
+    public void printNewRatings() {
+        System.out.println("-----------------------------------------------------------------------------");
+        System.out.printf("%10s %10s %10s %10s %10s %10s %10s", "RANKING", "NAME", "RATING", "# Games", "WIN/LOSS", "WINS", "LOSSES");
+        System.out.println();
+        System.out.println("-----------------------------------------------------------------------------");
+        for (int i = 0; i < players.size(); i++){
+            System.out.format("%10s %10s %10s %10d %10s %10s %10s",
+                    i+1, players.get(i).getName(), players.get(i).getRating(), players.get(i).getNumberOfGamesPlayed(),
+                    players.get(i).winLoss(), players.get(i).getWinCount(), players.get(i).getLossCount());
+            System.out.println();
+        }
+        System.out.println("-----------------------------------------------------------------------------");
+    }
+
 
 }

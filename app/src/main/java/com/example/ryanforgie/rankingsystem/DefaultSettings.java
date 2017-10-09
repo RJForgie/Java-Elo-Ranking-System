@@ -14,8 +14,8 @@ public class DefaultSettings {
 
     public DefaultSettings() {
         proRatingBoundry = 2400;
-        starterBoundry = 5;
-        defaultRating = 1000;
+        starterBoundry = 30;
+        defaultRating = 2000;
         defaultKFactor = 10;
     }
 

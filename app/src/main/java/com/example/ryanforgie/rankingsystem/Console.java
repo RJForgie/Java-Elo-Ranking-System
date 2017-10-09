@@ -10,7 +10,7 @@ public class Console {
     static Runner runner = new Runner(playerPool);
 
     public static void main(String[] args){
-        runner.play10Games();
+        runner.play1000Games();
     }
 
 }

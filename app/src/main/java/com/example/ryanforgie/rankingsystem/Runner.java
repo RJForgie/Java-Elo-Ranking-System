@@ -69,18 +69,25 @@ public class Runner {
         return 0;
     }
 
-    public void play10Games() {
-        for (int i = 0; i < 10; i++) {
+    public void play1000Games() {
+        for (int i = 0; i < 1000; i++) {
            ArrayList<Player> players = getRandomPlayers();
             int firstScore = getRandomFirstScore();
             Game game = new Game(players.get(0), firstScore, players.get(1), getSecondScore(firstScore));
-            System.out.println(game.getWinner());
+            System.out.println(game.getWinner().getName());
             RatingsCalculator ratingsCalculator = new RatingsCalculator(game);
             ratingsCalculator.updatePlayerRating(players.get(0), players.get(1));
             System.out.println(game.getWinner().getRating());
+            System.out.println(game.getLoser().getName());
+            System.out.println(game.getLoser().getRating());
+            System.out.println("-------");
         }
+        playerPool.sortPlayersByRanking();
+        playerPool.printNewRatings();
 
     }
+
+
 
 
 

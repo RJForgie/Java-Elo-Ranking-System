@@ -51,7 +51,15 @@ public class RatingsCalculator {
         int secondNewRating = this.newRating(secondPlayer, firstPlayer);
         firstPlayer.setRating(firstNewRating);
         secondPlayer.setRating(secondNewRating);
+        updateWinLossCounts();
     }
+
+    public void updateWinLossCounts() {
+        game.getWinner().incrementWinCount();
+        game.getLoser().incrementLossCount();
+    }
+
+
 
 
 
