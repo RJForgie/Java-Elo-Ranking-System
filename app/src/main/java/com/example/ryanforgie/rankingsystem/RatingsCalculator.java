@@ -15,7 +15,8 @@ public class RatingsCalculator {
         defaultSettings = new DefaultSettings();
         this.game = game;
         this.player1 = game.getPlayers().get(0);
-        this.player2 = game.getPlayers().get(0);
+        this.player2 = game.getPlayers().get(1);
+        updatePlayerRating(player1, player2);
     }
 
 

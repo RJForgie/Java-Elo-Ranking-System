@@ -24,7 +24,6 @@ public class Player implements Playable {
         winCount = 0;
         lossCount = 0;
         rating = defaultSettings.getDefaultRating();
-
     }
 
 

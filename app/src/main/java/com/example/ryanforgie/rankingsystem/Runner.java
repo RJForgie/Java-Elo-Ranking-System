@@ -76,7 +76,6 @@ public class Runner {
             Game game = new Game(players.get(0), firstScore, players.get(1), getSecondScore(firstScore));
             System.out.println(game.getWinner().getName());
             RatingsCalculator ratingsCalculator = new RatingsCalculator(game);
-            ratingsCalculator.updatePlayerRating(players.get(0), players.get(1));
             System.out.println(game.getWinner().getRating());
             System.out.println(game.getLoser().getName());
             System.out.println(game.getLoser().getRating());
