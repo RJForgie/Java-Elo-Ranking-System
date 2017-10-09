@@ -12,12 +12,12 @@ I plan to record results of games played at CodeClan and use the program to deci
 
 ## Functionality
 
-Players can be added to a playerPool, sorting this playerPool by player rating produces the ranking order.
-A game takes in 2 players and their respective scores.
-The ranking calculator takes in a game and uses the Elo formula to decide new ratings based on the score and original player ratings before the game. Once calculated, the player ratings are updated.
-
-The runner file simulates 1000 games to show the progression of the rating system.
-The playerPool can be logged out as a table to facilitate easy viewing.
+* Players can be added to a playerPool, sorting this playerPool by player rating produces the ranking order.
+* A game takes in 2 players and their respective scores.
+* The ranking calculator takes in a game and uses the Elo formula to decide new ratings based on the score and original player ratings before the game.
+* Once calculated, the player ratings are updated.
+* The runner file simulates 1000 games to show the progression of the rating system.
+* The playerPool can be logged out as a table to facilitate easy viewing.
 
 ## Future extensions
 
