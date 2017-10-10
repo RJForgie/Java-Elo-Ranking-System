@@ -33,8 +33,9 @@ public class PlayerPool {
         System.out.println();
         System.out.println("-----------------------------------------------------------------------------");
         for (int i = 0; i < players.size(); i++){
+            int rank = i;
             System.out.format("%10s %10s %10s %10d %10s %10s %10s",
-                    i, players.get(i).getName(), players.get(i).getRating(), players.get(i).getNumberOfGamesPlayed(),
+                    rank + 1, players.get(i).getName(), players.get(i).getRating(), players.get(i).getNumberOfGamesPlayed(),
                     players.get(i).winLoss(), players.get(i).getWinCount(), players.get(i).getLossCount());
             System.out.println();
         }

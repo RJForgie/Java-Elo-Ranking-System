@@ -17,7 +17,9 @@ I plan to record results of games played at CodeClan and use the program to deci
 * The ranking calculator takes in a game and uses the Elo formula to decide new ratings based on the score and original player ratings before the game.
 * Once calculated, the player ratings are updated.
 * The runner file simulates 1000 games to show the progression of the rating system.
-* The playerPool can be logged out as a table to facilitate easy viewing.
+* The playerPool can be logged out as a table to facilitate easy viewing (see below).
+
+![screenshots](https://github.com/RJForgie/Project-Java-Run-List/blob/master/screenshot.png "App Screenshots")
 
 ## Future extensions
 
