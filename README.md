@@ -19,7 +19,7 @@ I plan to record results of games played at CodeClan and use the program to deci
 * The runner file simulates 1000 games to show the progression of the rating system.
 * The playerPool can be logged out as a table to facilitate easy viewing (see below).
 
-![screenshots](https://github.com/RJForgie/Project-Java-Run-List/blob/master/screenshot.png "App Screenshots")
+![screenshots](https://github.com/RJForgie/Java-Elo-Ranking-System/blob/master/ranking_table_screenshot.png)
 
 ## Future extensions
 
