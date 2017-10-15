@@ -7,7 +7,7 @@ import java.util.Comparator;
  * Created by ryanforgie on 28/09/2017.
  */
 
-public class Player implements Playable {
+public class Player {
 
     private String name;
     private int winCount;

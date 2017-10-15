@@ -83,7 +83,6 @@ public class Runner {
         }
         playerPool.sortPlayersByRanking();
         playerPool.printNewRatings();
-
     }
 
 

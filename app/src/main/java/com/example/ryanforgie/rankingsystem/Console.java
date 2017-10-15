@@ -12,5 +12,4 @@ public class Console {
     public static void main(String[] args){
         runner.play1000Games();
     }
-
 }
